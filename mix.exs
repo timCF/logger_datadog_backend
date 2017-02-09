@@ -7,7 +7,9 @@ defmodule LoggerDatadogBackend.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     description: "a datadog backend for ExLogger",
+     package: package]
   end
 
   # Configuration for the OTP application
@@ -28,5 +30,13 @@ defmodule LoggerDatadogBackend.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:ex_statsd, ">= 0.5.1"}]
+  end
+
+  defp package do
+    [
+      maintainers: ["Matteo Giachino"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/matteosister/logger_datadog_backend"}
+    ]
   end
 end
