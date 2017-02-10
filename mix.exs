@@ -21,7 +21,9 @@ defmodule LoggerDatadogBackend.Mixfile do
 
   defp deps do
     [{:ex_statsd, ">= 0.5.1"},
-     {:ex_doc, ">= 0.0.0", only: :dev}]
+     {:ex_doc, ">= 0.0.0", only: :dev},
+     {:credo, ">= 0.6.1", only: :dev},
+     {:dialyxir, "~> 0.4", only: [:dev], runtime: false}]
   end
 
   defp package do

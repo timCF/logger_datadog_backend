@@ -8,6 +8,9 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
+config :logger,
+  backends: [:console, LoggerDatadogBackend]
+
 # You can configure for your application as:
 #
 #     config :logger_datadog_backend, key: :value
@@ -28,3 +31,6 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+
+config :logger,
+  backends: [:console, LoggerDatadogBackend]
