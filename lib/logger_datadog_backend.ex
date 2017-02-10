@@ -1,8 +1,12 @@
 defmodule LoggerDatadogBackend do
+  @moduledoc """
+  implementation for ExLogger backend
+  """
   use GenEvent
 
   defstruct [level: nil, enabled: false]
 
+  @doc false
   def init(__MODULE__) do
     config = Application.get_env(:logger, __MODULE__)
     enabled = case Code.ensure_loaded(ExStatsD) do
@@ -13,6 +17,7 @@ defmodule LoggerDatadogBackend do
     {:ok, init(config, %__MODULE__{enabled: enabled})}
   end
 
+  @doc false
   def handle_event({level, _group_leader, {Logger, _message, _timestamp, _metadata}}, state) do
     %{level: log_level, enabled: enabled} = state
     cond do
