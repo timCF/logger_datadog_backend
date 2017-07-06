@@ -30,6 +30,9 @@ defmodule LoggerDatadogBackend do
       :otherwise -> {:ok, log_event(level, state)}
     end
   end
+  def handle_event(:flush, state) do
+    {:ok, state}
+  end
 
   @spec init(Keyword.t, %LoggerDatadogBackend{}) :: %LoggerDatadogBackend{}
   defp init(config, state) do
